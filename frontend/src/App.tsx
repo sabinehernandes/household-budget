@@ -1,7 +1,10 @@
-import "./App.css";
+import "../css/index.css";
+import BudgetForm from "./BudgetForm";
 
-function App() {
-  return <></>;
+export default function App() {
+  return (
+    <>
+      <BudgetForm />
+    </>
+  );
 }
-
-export default App;
