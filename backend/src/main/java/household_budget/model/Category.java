@@ -10,44 +10,45 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @Column(name = "category_id")
+    private String categoryId;
 
-    private String name;
+    private String categoryName;
 
-    public Category(String id, String name) {
-        this.id = id;
-        this.name = name;
+    public Category(String categoryId, String name) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
     }
 
     public Category() {
 
     }
 
-    public String getId() {
-        return id;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
-        return name;
+        return categoryName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.categoryName = categoryName;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Category category)) return false;
-        return Objects.equals(id, category.id) && Objects.equals(name, category.name);
+        return Objects.equals(categoryId, category.categoryId) && Objects.equals(categoryName, category.categoryName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(categoryId, categoryName);
     }
 }
