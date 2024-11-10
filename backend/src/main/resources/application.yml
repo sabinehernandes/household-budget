@@ -2,6 +2,7 @@ debug: true
 api:
   base-path: /api
   controllers:
+    expenses: /expenses
 server:
   port: 3000
 spring:

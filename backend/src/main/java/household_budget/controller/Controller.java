@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("${api.base-path}${api.controllers.expenses}")
 public class Controller {
     private final ExpenseService service;
 
@@ -18,19 +19,19 @@ public class Controller {
         this.service = service;
     }
 
-    @GetMapping("/api/expenses/")
+    @GetMapping()
     public ResponseEntity<List<ExpenseDto>> getAllExpenses() {
         List<ExpenseDto> expenses = service.getAllExpenses();
         return ResponseEntity.ok(expenses);
     }
 
-    @PostMapping("/api/expenses/")
+    @PostMapping()
     public ResponseEntity<Expense> createExpense(@Valid @RequestBody ExpenseDto dto) {
         Expense expense = service.createExpense(dto);
         return new ResponseEntity<>(expense, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/api/expenses/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteExpense(@PathVariable String id) throws Exception {
         service.deleteExpense(id);
         return ResponseEntity.noContent().build();
