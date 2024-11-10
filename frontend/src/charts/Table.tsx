@@ -54,18 +54,29 @@ export default function Table({ expenses, fetchExpenses }: TableProps) {
   };
 
   return (
-    <div className="ag-theme-quartz m-10" style={{ height: "400px" }}>
-      <AgGridReact
-        rowData={expenses}
-        columnDefs={colDefs}
-        defaultColDef={defaultColDef}
-        onRowClicked={(e) => handleRowClick(e.data)}
-      />{" "}
-      {selectedRow && (
-        <button onClick={handleDelete} className="delete-button">
-          Delete
-        </button>
-      )}
-    </div>
+    <>
+      <div className="bg-slate-100 rounded-md m-10 p-10 leading-relaxed">
+        <h2 className="text-4xl text-gray-700 font-bold tracking-wide text-center">
+          All Expenses
+        </h2>
+
+        <div className="ag-theme-quartz m-10" style={{ height: "500px" }}>
+          <AgGridReact
+            rowData={expenses}
+            columnDefs={colDefs}
+            defaultColDef={defaultColDef}
+            onRowClicked={(e) => handleRowClick(e.data)}
+          />{" "}
+          {selectedRow && (
+            <button
+              onClick={handleDelete}
+              className="rounded-md bg-white px-2.5 py-1.5 font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-700 hover:ring-red-700 hover:text-white"
+            >
+              Delete
+            </button>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
