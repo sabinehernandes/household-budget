@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/index.css";
 import BudgetForm from "./BudgetForm";
-import Expenses from "./Expenses";
 import { createExpense, getAllExpenses } from "./services/api";
 import { Expense } from "./types";
 
