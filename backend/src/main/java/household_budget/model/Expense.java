@@ -1,7 +1,6 @@
 package household_budget.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -18,9 +17,8 @@ public class Expense {
 
     private String paidBy;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    @NotNull
     private Category category;
 
     private String description;
