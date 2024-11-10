@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createExpense, getAllExpenses } from "./services/api";
-import ExpensesList from "./Expenses";
 import Table from "./charts/Table";
 
 export default function BudgetForm({ onSubmit }) {
