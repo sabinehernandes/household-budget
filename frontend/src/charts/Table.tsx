@@ -70,7 +70,7 @@ export default function Table({ expenses, fetchExpenses }: TableProps) {
           {selectedRow && (
             <button
               onClick={handleDelete}
-              className="rounded-md bg-white px-2.5 py-1.5 font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-700 hover:ring-red-700 hover:text-white"
+              className="rounded-md mt-6 bg-white px-2.5 py-1.5 font-semibold text-red-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-700 hover:ring-red-700 hover:text-white"
             >
               Delete
             </button>
