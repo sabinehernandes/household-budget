@@ -1,6 +1,6 @@
 package household_budget.model;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ExpenseDbRepository extends CrudRepository<Expense, String> {
+public interface ExpenseDbRepository extends JpaRepository<Expense, String> {
 }
