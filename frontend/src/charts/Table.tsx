@@ -5,35 +5,22 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import React, { useState } from "react";
 
 interface IRow {
-  date: string;
+  createdAt: string;
   paidBy: string;
-  category: string;
+  categoryName: string;
   description: string;
   amount: number;
 }
 
-export default function Table() {
-  const [rowData, setRowData] = useState<IRow[]>([
-    {
-      date: "01/05/2024",
-      paidBy: "Sabine",
-      category: "house",
-      description: "rent",
-      amount: 12000,
-    },
-    {
-      date: "01/02/2024",
-      paidBy: "Sabine",
-      category: "restaurant",
-      description: "Mapu Baos",
-      amount: 600,
-    },
-  ]);
+interface TableProps {
+  expenses: IRow[];
+}
 
-  const [colDefs, setColDefs] = useState<ColDef<IRow>[]>([
-    { field: "date" },
+export default function Table({ expenses }: TableProps) {
+  const [colDefs] = useState<ColDef<IRow>[]>([
+    { field: "createdAt" },
     { field: "paidBy" },
-    { field: "category" },
+    { field: "categoryName" },
     { field: "description" },
     { field: "amount" },
   ]);
@@ -45,7 +32,7 @@ export default function Table() {
   return (
     <div className="ag-theme-quartz m-10" style={{ height: "400px" }}>
       <AgGridReact
-        rowData={rowData}
+        rowData={expenses}
         columnDefs={colDefs}
         defaultColDef={defaultColDef}
       />
