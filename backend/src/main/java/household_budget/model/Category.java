@@ -15,7 +15,7 @@ public class Category {
 
     private String categoryName;
 
-    public Category(String categoryId, String name) {
+    public Category(String categoryId, String categoryName) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
@@ -32,11 +32,11 @@ public class Category {
         this.categoryId = categoryId;
     }
 
-    public String getName() {
+    public String getCategoryName() {
         return categoryName;
     }
 
-    public void setName(String name) {
+    public void setCategoryName(String name) {
         this.categoryName = categoryName;
     }
 
