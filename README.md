@@ -36,6 +36,7 @@ In general, make the app receive incomes and expenses, ensuring a proper financi
 - Render categories from <code>/getCategories</code>
 - Improve error handling
 - Add filtering per period
+- Remove harcoded code (I know, it's bad)
 
 ### UX
 
