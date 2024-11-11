@@ -4,6 +4,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import React, { useState } from "react";
 import { deleteExpense } from "../services/api";
+import toast, { Toaster } from "react-hot-toast";
 
 interface IRow {
   id: string;
@@ -32,11 +33,12 @@ export default function Table({ expenses, fetchExpenses }: TableProps) {
         console.log("exp id ", selectedRow.id);
         console.log("row", selectedRow);
         await deleteExpense(selectedRow.id);
+        toast.success("Expense successfully deleted");
         fetchExpenses();
         setSelectedRow(null);
       } catch (error) {
         console.error("Failed: ", error);
-        alert("Error deleting expense. Try again later");
+        toast.error("Error deleting expense. Try again later");
       }
     }
   };
@@ -55,6 +57,7 @@ export default function Table({ expenses, fetchExpenses }: TableProps) {
 
   return (
     <>
+      <Toaster />
       <div className="bg-slate-100 rounded-md m-10 p-10 leading-relaxed">
         <h2 className="text-4xl text-gray-700 font-bold tracking-wide text-center">
           All Expenses

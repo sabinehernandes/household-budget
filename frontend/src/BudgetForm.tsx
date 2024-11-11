@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createExpense, getAllExpenses } from "./services/api";
 import Table from "./charts/Table";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function BudgetForm({ onSubmit }) {
   const [expenses, setExpenses] = useState([]);
@@ -23,7 +24,7 @@ export default function BudgetForm({ onSubmit }) {
     event.preventDefault();
 
     if (!date || !paidBy || !categoryName || !amount) {
-      alert("Please fill in all required fields");
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -38,6 +39,7 @@ export default function BudgetForm({ onSubmit }) {
     try {
       const newExpense = await createExpense(expenseData);
       if (newExpense) {
+        toast.success("Expense successfully added");
         fetchExpenses();
       }
       setDate("");
@@ -46,12 +48,13 @@ export default function BudgetForm({ onSubmit }) {
       setDescription("");
       setAmount("");
     } catch (error) {
-      alert("Error creating expense. Try again later.");
+      toast.error("Error creating expense. Try again later.");
     }
   };
 
   return (
     <>
+      <Toaster />
       <section className="budget-form bg-slate-100 m-10 p-10 rounded-md leading-relaxed">
         <h1 className="text-5xl text-gray-700 font-bold tracking-wide text-center">
           Household Budget
